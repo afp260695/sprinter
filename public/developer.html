@@ -8,7 +8,7 @@
     <meta name="author" content="">
      <link rel="shortcut icon" href="assets/ico/labtekindie.png">
 
-    <title>Sprinter - Developer</title>
+    <title>Sprinter - Projects</title>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -42,14 +42,12 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="project.html">SPRINTER | </a> 
-		  <!-- read from database link project -->
-		  <a class="navbar-brand" href="project.html">Project Name </a>
+          <a class="navbar-brand" href="d.html">SPRINTER</a>
         </div>
         <div class="navbar-collapse collapse navbar-right">
           	<ul class="nav navbar-nav">
-            <li><a href=# data-toggle="modal" data-target="#modalAddUserStory">ADD USER STORY</a></li>
-            <li><a href=# data-toggle="modal" data-target="#modalAddDeveloper">ADD DEVELOPER</a></li>
+			<!-- read from database tanggalnya -->
+            <li><a href=# data-toggle="modal" data-target=>Date : 5 April 2017</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -63,21 +61,47 @@
 	 <div class="container mtb">
 	 	<div class="row">
 	 		<div class="col-lg-3">
-	 			<h4>Developers | <a href="user-story.html">User Stories</a></h4>
+			<!-- read from database sprint dan project apa -->
+	 			<h4>Sprint Name | Project Name</h4>
 	 			<div class="hline"></div>
-	 			<p><a href="#">Abdul Muis</a></p>
-	 			<p><a href="#">Kevin Sanjaya</a></p>
-	 			<p><a href="#">Shen Mei</a></p>
-	 			<p><a href="#">Yutakut Tokunagut</a></p>
-	 			<p><a href="#">Miftahul Mahfuzh</a></p>
+				<!-- looping project from database here-->
 	 		</div>
+			<br>
+			<br>
+			<br>
+			<div class="modal-body">
+            	<form role="form">
+					  <div class="form-group">
+					    <label for="InputName1">Doing</label>
+						<!-- read from database tasks-->
+					    <select name="doing" class="form-control" id="exampleInputEmail1">
+							<option value="Task A">Task A</option>
+							<option value="Task B">Task B</option>
+							<option value="Task C">Task C</option>
+						  </select>
+					  </div>
+					  <div class="form-group">
+					    <label for="InputEmail1">Done</label>
+					    <select name="doing" class="form-control" id="exampleInputEmail1">
+							<option value="Task A">Task A</option>
+							<option value="Task B">Task B</option>
+							<option value="Task C">Task C</option>
+						  </select>
+					  </div>
+					  <div class="form-group">
+					  	<label for="message1">Obstacle</label>
+					  	<textarea class="form-control" id="message1" rows="3"></textarea>
+					  </div>
+					  <button type="submit" class="btn btn-theme">Submit</button>
+				</form>
+            </div>
 	 	</div><! --/row -->
 	 </div><! --/container -->
 	 
 	<!-- *****************************************************************************************************************
 	 FOOTER
 	 ***************************************************************************************************************** -->
-	<div id="footerwrap">
+	 <div id="footerwrap">
 	 	<div class="container">
 		 	<div class="row">
 		 		<div class="col-lg-4">
@@ -108,15 +132,27 @@
 	 	</div><! --/container -->
 	 </div><! --/footerwrap -->
 	 
-      <!--modal add user story-->
-      <div class="modal fade" id="modalAddUserStory" role="dialog">
+     <!--modal add project-->
+      <div class="modal fade" id="modalAddProject" role="dialog">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h3 class="standard-title">Add User Story</h3>
+              <h3 class="standard-title">Add Project</h3>
             </div>
             <div class="modal-body">
             	<form role="form">
+					  <div class="form-group">
+					    <label for="InputName1">Project Name</label>
+					    <input type="text" class="form-control" id="exampleInputEmail1">
+					  </div>
+					  <div class="form-group">
+					    <label for="InputEmail1">Client Name</label>
+					    <input type="email" class="form-control" id="exampleInputEmail1">
+					  </div>
+					  <div class="form-group">
+					    <label for="InputSubject1">Scrum Master</label>
+					    <input type="email" class="form-control" id="exampleInputEmail1">
+					  </div>
 					  <div class="form-group">
 					  	<label for="message1">Description</label>
 					  	<textarea class="form-control" id="message1" rows="3"></textarea>
@@ -127,43 +163,7 @@
           </div>
         </div>
       </div>
-      <!--modal add user story end-->
-
-     <!--modal add developer-->
-      <div class="modal fade" id="modalAddDeveloper" role="dialog">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h3 class="standard-title">Add Developer</h3>
-            </div>
-            <div class="modal-body">
-            	<form role="form">
-					  <div class="form-group">
-					    <label for="InputName">Name</label>
-					    <!--<input type="text" class="form-control" id="InputName">-->
-						  <!-- from database -->
-						  <select name="developer">
-							<option value="Fajar">Fajar</option>
-							<option value="Joshua">Joshua</option>
-							<option value="Miftah">Miftah</option>
-						  </select>
-						  <br>
-						<label for="InputName">Keahlian</label>
-					    <!--<input type="text" class="form-control" id="InputName">-->
-						  <!-- from database -->
-						  <select name="keahlian">
-							<option value="BackEnd">BackEnd</option>
-							<option value="FrontEnd">FrontEnd</option>
-							<option value="FullStack">FullStack</option>
-						  </select>
-					  </div>
-					  <button type="submit" class="btn btn-theme">Submit</button>
-				</form>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--modal add developer end-->
+      <!--modal add project end-->
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

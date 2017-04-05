@@ -8,7 +8,7 @@
     <meta name="author" content="">
      <link rel="shortcut icon" href="assets/ico/labtekindie.png">
 
-    <title>Sprinter - User Stories</title>
+    <title>Sprinter - ScrumMaster</title>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -42,14 +42,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="project.html">SPRINTER | </a> 
+          <a class="navbar-brand" href="scrummaster.html">SPRINTER | </a> 
 		  <!-- read from database link project -->
-		  <a class="navbar-brand" href="project.html">Project Name </a>
+		  <a class="navbar-brand" href="scrummaster.html">Project Name </a>
         </div>
         <div class="navbar-collapse collapse navbar-right">
           	<ul class="nav navbar-nav">
-            <li><a href=# data-toggle="modal" data-target="#modalAddUserStory">ADD USER STORY</a></li>
-            <li><a href=# data-toggle="modal" data-target="#modalAddDeveloper">ADD DEVELOPER</a></li>
+            <li><a href=# data-toggle="modal" data-target="#modalAddSprint">ADD SPRINT</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -63,14 +62,14 @@
 	 <div class="container mtb">
 	 	<div class="row">
 	 		<div class="col-lg-3">
-	 			<h4>User Stories | <a href="productowner.html">Developers</a></h4>
+	 			<h4>List Sprints</h4>
 	 			<div class="hline"></div>
-				<!-- read from database -->
-	 			<p><a href="#">User Story 1</a></p>
-	 			<p><a href="#">User Story 2</a></p>
-	 			<p><a href="#">User Story 3</a></p>
-	 			<p><a href="#">User Story 4</a></p>
-	 			<p><a href="#">User Story 5</a></p>
+				<!-- looping project from database here-->
+	 			<p><a href="sprint.html">Sprint A</a></p> 
+	 			<p><a href="sprint.html">Sprint B</a></p>
+	 			<p><a href="sprint.html">Sprint C</a></p>
+	 			<p><a href="sprint.html">Sprint D</a></p>
+	 			<p><a href="sprint.html">Sprint E</a></p>
 	 		</div>
 	 	</div><! --/row -->
 	 </div><! --/container -->
@@ -78,7 +77,7 @@
 	<!-- *****************************************************************************************************************
 	 FOOTER
 	 ***************************************************************************************************************** -->
-	<div id="footerwrap">
+	 <div id="footerwrap">
 	 	<div class="container">
 		 	<div class="row">
 		 		<div class="col-lg-4">
@@ -109,18 +108,27 @@
 	 	</div><! --/container -->
 	 </div><! --/footerwrap -->
 	 
-     <!--modal add user story-->
-      <div class="modal fade" id="modalAddUserStory" role="dialog">
+     <!--modal add project-->
+      <div class="modal fade" id="modalAddSprint" role="dialog">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h3 class="standard-title">Add User Story</h3>
+              <h3 class="standard-title">Add Sprint</h3>
             </div>
             <div class="modal-body">
             	<form role="form">
 					  <div class="form-group">
-					  	<label for="message1">Description</label>
-					  	<textarea class="form-control" id="message1" rows="3"></textarea>
+					    <label for="InputName1">Jadwal Sprint Planning Meeting</label>
+						<input type="date" name="bday" class="form-control" id="jadwalspm">
+					  </div>
+					  <div class="form-group">
+					    <label for="InputEmail1">Jadwal Daily Sprint</label>
+					    <input type="time" name="usr_time" class="form-control" id="waktuds" >
+						
+					  </div>
+					  <div class="form-group">
+					    <label for="InputSubject1">Tempat Daily Sprint</label>
+					    <input type="email" class="form-control" id="exampleInputEmail1">
 					  </div>
 					  <button type="submit" class="btn btn-theme">Submit</button>
 				</form>
@@ -128,43 +136,7 @@
           </div>
         </div>
       </div>
-      <!--modal add user story end-->
-
-     <!--modal add developer-->
-      <div class="modal fade" id="modalAddDeveloper" role="dialog">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h3 class="standard-title">Add Developer</h3>
-            </div>
-            <div class="modal-body">
-            	<form role="form">
-					  <div class="form-group">
-					    <label for="InputName">Name</label>
-					    <!--<input type="text" class="form-control" id="InputName">-->
-						  <!-- from database -->
-						  <select name="developer" class="form-control" id="exampleInputEmail1">
-							<option value="Fajar">Fajar</option>
-							<option value="Joshua">Joshua</option>
-							<option value="Miftah">Miftah</option>
-						  </select>
-						  <br>
-						<label for="InputName">Keahlian</label>
-					    <!--<input type="text" class="form-control" id="InputName">-->
-						  <!-- from database -->
-						  <select name="keahlian" class="form-control" id="exampleInputEmail1">
-							<option value="BackEnd">BackEnd</option>
-							<option value="FrontEnd">FrontEnd</option>
-							<option value="FullStack">FullStack</option>
-						  </select>
-					  </div>
-					  <button type="submit" class="btn btn-theme">Submit</button>
-				</form>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--modal add developer end-->
+      <!--modal add project end-->
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

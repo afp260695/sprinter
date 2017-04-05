@@ -8,7 +8,7 @@
     <meta name="author" content="">
      <link rel="shortcut icon" href="assets/ico/labtekindie.png">
 
-    <title>Sprinter - User Stories</title>
+    <title>Sprinter - Sprint</title>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -42,14 +42,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="project.html">SPRINTER | </a> 
+          <a class="navbar-brand" href="scrummaster.html">SPRINTER | </a> 
 		  <!-- read from database link project -->
-		  <a class="navbar-brand" href="project.html">Project Name </a>
+		  <a class="navbar-brand" href="sprint.html">Sprint Name </a>
         </div>
         <div class="navbar-collapse collapse navbar-right">
           	<ul class="nav navbar-nav">
-            <li><a href=# data-toggle="modal" data-target="#modalAddUserStory">ADD USER STORY</a></li>
-            <li><a href=# data-toggle="modal" data-target="#modalAddDeveloper">ADD DEVELOPER</a></li>
+            <li><a href=# data-toggle="modal" data-target="#modalAddTask">Add Task</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -63,14 +62,11 @@
 	 <div class="container mtb">
 	 	<div class="row">
 	 		<div class="col-lg-3">
-	 			<h4>User Stories | <a href="productowner.html">Developers</a></h4>
+	 			<h4>Burndown Chart | <a href="sprint.html">Tasks</a></h4>
 	 			<div class="hline"></div>
-				<!-- read from database -->
-	 			<p><a href="#">User Story 1</a></p>
-	 			<p><a href="#">User Story 2</a></p>
-	 			<p><a href="#">User Story 3</a></p>
-	 			<p><a href="#">User Story 4</a></p>
-	 			<p><a href="#">User Story 5</a></p>
+				<!-- read from database semua task -->
+				<br>
+	 			Graphic Here
 	 		</div>
 	 	</div><! --/row -->
 	 </div><! --/container -->
@@ -109,18 +105,30 @@
 	 	</div><! --/container -->
 	 </div><! --/footerwrap -->
 	 
-     <!--modal add user story-->
-      <div class="modal fade" id="modalAddUserStory" role="dialog">
+      <!--modal add user story-->
+      <div class="modal fade" id="modalAddTask" role="dialog">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h3 class="standard-title">Add User Story</h3>
+              <h3 class="standard-title">Add Task</h3>
             </div>
             <div class="modal-body">
             	<form role="form">
 					  <div class="form-group">
-					  	<label for="message1">Description</label>
+					  	<label for="message1">User Story</label>
+					  	<!-- from database -->
+						  <select name="developer" class="form-control" id="exampleInputEmail1">
+							<option value="UserStory1">UserStory1</option>
+							<option value="UserStory2">UserStory2</option>
+							<option value="UserStory3">UserStory3</option>
+						  </select>
+						  <br>
+						  <div class="form-group">
+					  	<label for="message1">Task Description</label>
 					  	<textarea class="form-control" id="message1" rows="3"></textarea>
+					  </div>
+					  <label for="message1">Estimate Time</label>
+					  <input type="number" name="hour" min="1" max="100" class="form-control" id="exampleInputEmail1">
 					  </div>
 					  <button type="submit" class="btn btn-theme">Submit</button>
 				</form>
