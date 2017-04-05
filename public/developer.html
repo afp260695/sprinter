@@ -42,12 +42,14 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="project.html">PROJECT NAME</a>
+          <a class="navbar-brand" href="project.html">SPRINTER | </a> 
+		  <!-- read from database link project -->
+		  <a class="navbar-brand" href="user-story.html">Project Name </a>
         </div>
         <div class="navbar-collapse collapse navbar-right">
           	<ul class="nav navbar-nav">
-            <li><a href="project.html" data-toggle="modal" data-target="#modalAddUserStory">ADD USER STORY</a></li>
-            <li><a href="project.html" data-toggle="modal" data-target="#modalDeveloper">ADD DEVELOPER</a></li>
+            <li><a href=# data-toggle="modal" data-target="#modalAddUserStory">ADD USER STORY</a></li>
+            <li><a href=# data-toggle="modal" data-target="#modalAddDeveloper">ADD DEVELOPER</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -106,27 +108,15 @@
 	 	</div><! --/container -->
 	 </div><! --/footerwrap -->
 	 
-     <!--modal add project-->
-      <div class="modal fade" id="modalAddProject" role="dialog">
+      <!--modal add user story-->
+      <div class="modal fade" id="modalAddUserStory" role="dialog">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h3 class="standard-title">Add Project</h3>
+              <h3 class="standard-title">Add User Story</h3>
             </div>
             <div class="modal-body">
             	<form role="form">
-					  <div class="form-group">
-					    <label for="InputName1">Project Name</label>
-					    <input type="text" class="form-control" id="exampleInputEmail1">
-					  </div>
-					  <div class="form-group">
-					    <label for="InputEmail1">Client Name</label>
-					    <input type="email" class="form-control" id="exampleInputEmail1">
-					  </div>
-					  <div class="form-group">
-					    <label for="InputSubject1">Scrum Master</label>
-					    <input type="email" class="form-control" id="exampleInputEmail1">
-					  </div>
 					  <div class="form-group">
 					  	<label for="message1">Description</label>
 					  	<textarea class="form-control" id="message1" rows="3"></textarea>
@@ -137,7 +127,43 @@
           </div>
         </div>
       </div>
-      <!--modal add slider end-->
+      <!--modal add user story end-->
+
+     <!--modal add developer-->
+      <div class="modal fade" id="modalAddDeveloper" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 class="standard-title">Add Developer</h3>
+            </div>
+            <div class="modal-body">
+            	<form role="form">
+					  <div class="form-group">
+					    <label for="InputName">Name</label>
+					    <!--<input type="text" class="form-control" id="InputName">-->
+						  <!-- from database -->
+						  <select name="developer">
+							<option value="Fajar">Fajar</option>
+							<option value="Joshua">Joshua</option>
+							<option value="Miftah">Miftah</option>
+						  </select>
+						  <br>
+						<label for="InputName">Keahlian</label>
+					    <!--<input type="text" class="form-control" id="InputName">-->
+						  <!-- from database -->
+						  <select name="keahlian">
+							<option value="BackEnd">BackEnd</option>
+							<option value="FrontEnd">FrontEnd</option>
+							<option value="FullStack">FullStack</option>
+						  </select>
+					  </div>
+					  <button type="submit" class="btn btn-theme">Submit</button>
+				</form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--modal add developer end-->
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
