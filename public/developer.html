@@ -28,7 +28,21 @@
     <![endif]-->
     
     <script src="assets/js/modernizr.js"></script>
+	
   </head>
+  <script>
+  $(document).ready(function(){
+    $("#btn1").click(function(){
+        $("#doing").append("<select name="doing" class="form-control" id="exampleInputEmail1"> <option value="Task A">Task A</option> <option value="Task B">Task B</option> <option value="Task C">Task C</option></select> <br>");
+		alert("The paragraph was clicked.");
+    });
+
+    $("#btn2").click(function(){
+        $("#done").append("<select name="done" class="form-control" id="exampleInputEmail1"> <option value="Task A">Task A</option><option value="Task B">Task B</option> <option value="Task C">Task C</option></select> <br>");
+		alert("The paragraph was clicked.");
+	});
+});
+  </script>
 
   <body>
 
@@ -72,21 +86,29 @@
 			<div class="modal-body">
             	<form role="form">
 					  <div class="form-group">
-					    <label for="InputName1">Doing</label>
-						<!-- read from database tasks-->
-					    <select name="doing" class="form-control" id="exampleInputEmail1">
-							<option value="Task A">Task A</option>
-							<option value="Task B">Task B</option>
-							<option value="Task C">Task C</option>
-						  </select>
+						<div id="doing">
+							<label for="InputName1">Doing</label>
+							<!-- read from database tasks-->
+							<select name="doing" class="form-control" id="exampleInputEmail1">
+								<option value="Task A">Task A</option>
+								<option value="Task B">Task B</option>
+								<option value="Task C">Task C</option>
+							</select>
+							<br>
+							<button id="btn1">Add Doing</button>
+						</div>
 					  </div>
 					  <div class="form-group">
-					    <label for="InputEmail1">Done</label>
-					    <select name="doing" class="form-control" id="exampleInputEmail1">
-							<option value="Task A">Task A</option>
-							<option value="Task B">Task B</option>
-							<option value="Task C">Task C</option>
-						  </select>
+						<div id="done">
+							<label for="InputEmail1">Done</label>
+							<select name="doing" class="form-control" id="exampleInputEmail1">
+								<option value="Task A">Task A</option>
+								<option value="Task B">Task B</option>
+								<option value="Task C">Task C</option>
+							</select>
+							<br>
+							<button id="btn2">Add Done</button>
+						</div>
 					  </div>
 					  <div class="form-group">
 					  	<label for="message1">Obstacle</label>
@@ -131,39 +153,6 @@
 		 	</div><! --/row -->
 	 	</div><! --/container -->
 	 </div><! --/footerwrap -->
-	 
-     <!--modal add project-->
-      <div class="modal fade" id="modalAddProject" role="dialog">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h3 class="standard-title">Add Project</h3>
-            </div>
-            <div class="modal-body">
-            	<form role="form">
-					  <div class="form-group">
-					    <label for="InputName1">Project Name</label>
-					    <input type="text" class="form-control" id="exampleInputEmail1">
-					  </div>
-					  <div class="form-group">
-					    <label for="InputEmail1">Client Name</label>
-					    <input type="email" class="form-control" id="exampleInputEmail1">
-					  </div>
-					  <div class="form-group">
-					    <label for="InputSubject1">Scrum Master</label>
-					    <input type="email" class="form-control" id="exampleInputEmail1">
-					  </div>
-					  <div class="form-group">
-					  	<label for="message1">Description</label>
-					  	<textarea class="form-control" id="message1" rows="3"></textarea>
-					  </div>
-					  <button type="submit" class="btn btn-theme">Submit</button>
-				</form>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--modal add project end-->
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
