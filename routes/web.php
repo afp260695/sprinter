@@ -23,3 +23,27 @@ Route::post('/login', 'Auth\LoginController@authenticate');
 Route::get('/',  'Auth\LoginController@showLoginForm');
 Route::get('/login',  'Auth\LoginController@showLoginForm');
 Route::get('/logout', 'Auth\LoginController@logout');
+
+Route::group(['middleware' => ['auth']], function () {
+    Route::group(['prefix' => 'po'], function () {
+    	Route::get('/', function() {
+    		echo "po";
+    		die();
+    	}); 	
+    });
+
+    Route::group(['prefix' => 'sm'], function () {
+    	Route::get('/', function() {
+    		echo "sm";
+    		die();
+    	}); 	
+    });
+
+    Route::group(['prefix' => 'dev'], function () {
+    	Route::get('/', function() {
+    		echo "dev";
+    		die();
+    	}); 	
+    });
+    
+});

@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -41,11 +43,11 @@ class LoginController extends Controller
     {
         $username = $request->input('username');
         $password = $request->input('password');
-        $role = $request->input('role');
-
-        if (Auth::attempt(['username' => $username, 'password' => $password, 'role' => $role])) {
-            
-            return redirect('/'.strtolower($role));
+        
+        
+        if (Auth::attempt(['username' => $username, 'password' => $password])) {
+            $user = Auth::user();
+            return redirect('/'.strtolower($user->role));
         }
 
     
