@@ -15,8 +15,8 @@ class CreateUserStoriesTable extends Migration
     {
         Schema::create('user__stories', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_task');
-            $table->integer('id_sprint');
+            $table->integer('id_proyek');
+            $table->integer('id_sprint')->default(0);
             $table->string('deskripsi', 255);
             $table->timestamps();
         });

@@ -19,7 +19,7 @@ class CreateSprintsTable extends Migration
             $table->date('jadwal_spm');
             $table->date('jadwal_srm');
             $table->integer('id_proyek');
-            $table->integer('id_scrum_master');
+            $table->integer('id_scrum_master')->nullable();
             $table->timestamps();
         });
     }

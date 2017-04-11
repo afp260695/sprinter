@@ -16,10 +16,12 @@ class CreateProyeksTable extends Migration
         Schema::create('proyeks', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nama_klien', 60);
+            $table->string('nama_proyek', 60);
             $table->string('deskripsi', 255);
             $table->date('waktu_mulai')->nullable();
             $table->date('waktu_selesai')->nullable();
             $table->integer('id_product_owner');
+            $table->integer('id_scrum_master');
             $table->timestamps();
         });
     }

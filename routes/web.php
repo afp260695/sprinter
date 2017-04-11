@@ -26,10 +26,9 @@ Route::get('/logout', 'Auth\LoginController@logout');
 
 Route::group(['middleware' => ['auth']], function () {
     Route::group(['prefix' => 'po'], function () {
-    	Route::get('/', function() {
-    		echo "po";
-    		die();
-    	}); 	
+    	Route::resource('/', 'PO\ProyekController', ['only' => ['index', 'show', 'store']]);
+        Route::resource('/proyek', 'PO\ProyekController', ['only' => ['index', 'show', 'store']]);
+        Route::resource('/user_story', 'PO\UserStoriesController', ['only' => ['index', 'show', 'store']]);	
     });
 
     Route::group(['prefix' => 'sm'], function () {
