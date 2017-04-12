@@ -39,10 +39,8 @@ Route::group(['middleware' => ['auth']], function () {
     });
 
     Route::group(['prefix' => 'dev'], function () {
-    	Route::get('/', function() {
-    		echo "dev";
-    		die();
-    	}); 	
+    	Route::resource('/', 'DEV\ReportController', ['only' => ['index', 'store']]);
+        Route::resource('/report', 'DEV\ReportController', ['only' => ['index', 'store']]);	
     });
     
 });

@@ -6,16 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-     <link rel="shortcut icon" href="assets/ico/labtekindie.png">
+     <link rel="shortcut icon" href="{{ asset('assets/ico/labtekindie.png')}}">
 
     <title>Sprinter - Projects</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="{{ asset('assets/css/bootstrap.css')}}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="assets/css/style2.css" rel="stylesheet">
-    <link href="assets/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{{ asset('assets/css/style2.css')}}" rel="stylesheet">
+    <link href="{{ asset('assets/css/font-awesome.min.css')}}" rel="stylesheet">
 
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
@@ -27,7 +27,7 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     
-    <script src="assets/js/modernizr.js"></script>
+    <script src="{{ asset('assets/js/modernizr.js')}}"></script>
 	
   </head>
   <!-- <script>
@@ -61,7 +61,8 @@
         <div class="navbar-collapse collapse navbar-right">
           	<ul class="nav navbar-nav">
 			<!-- read from database tanggalnya -->
-            <li><a href=# data-toggle="modal" data-target=>Date : 5 April 2017</a></li>
+            <li><a href=# data-toggle="modal" data-target=>Date : {{date("d M Y")}}</a></li>
+            <li><a href="/logout" >LOGOUT</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -74,49 +75,8 @@
 
 	 <div class="container mtb">
 	 	<div class="row">
-	 		<div class="col-lg-3">
-			<!-- read from database sprint dan project apa -->
-	 			<h4>Sprint Name | Project Name</h4>
-	 			<div class="hline"></div>
-				<!-- looping project from database here-->
-	 		</div>
-			<br>
-			<br>
-			<br>
-			<div class="modal-body">
-            	<form role="form">
-					  <div class="form-group">
-						<div id="doing">
-							<label for="InputName1">Doing</label>
-							<!-- read from database tasks-->
-							<select name="doing1" class="form-control" id="exampleInputEmail1">
-								<option value="Task A">Task A</option>
-								<option value="Task B">Task B</option>
-								<option value="Task C">Task C</option>
-							</select>
-							<br>
-						</div>
-						<div class="btn btn-theme" onclick="addDoing()">Add Doing</div>
-					  </div>
-					  <div class="form-group">
-						<div id="done">
-							<label for="InputEmail1">Done</label>
-							<select name="done1" class="form-control" id="exampleInputEmail1">
-								<option value="Task A">Task A</option>
-								<option value="Task B">Task B</option>
-								<option value="Task C">Task C</option>
-							</select>
-							<br>
-							
-						</div>
-						<div class="btn btn-theme" onclick="addDone()">Add Done</div>
-					  </div>
-					  <div class="form-group">
-					  	<label for="message1">Obstacle</label>
-					  	<textarea class="form-control" id="message1" rows="3" name="obstacle"></textarea>
-					  </div>
-					  <button type="submit" class="btn btn-theme">Submit</button>
-				</form>
+	 		<div class="col-lg-12">
+				<center><b style="font-size: 30px;">Kamu sedang tidak dalam proyek manapun.</b></center>
             </div>
 	 	</div>
 	 </div>
@@ -158,14 +118,14 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="assets/js/jquery-1.11.0.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-	<script src="assets/js/retina-1.1.0.js"></script>
-	<script src="assets/js/jquery.hoverdir.js"></script>
-	<script src="assets/js/jquery.hoverex.min.js"></script>
-	<script src="assets/js/jquery.prettyPhoto.js"></script>
-  	<script src="assets/js/jquery.isotope.min.js"></script>
-  	<script src="assets/js/custom.js"></script>
+    <script src="{{ asset('assets/js/jquery-1.11.0.min.js')}}"></script>
+    <script src="{{ asset('assets/js/bootstrap.min.js')}}"></script>
+	<script src="{{ asset('assets/js/retina-1.1.0.js')}}"></script>
+	<script src="{{ asset('assets/js/jquery.hoverdir.js')}}"></script>
+	<script src="{{ asset('assets/js/jquery.hoverex.min.js')}}"></script>
+	<script src="{{ asset('assets/js/jquery.prettyPhoto.js')}}"></script>
+  	<script src="{{ asset('assets/js/jquery.isotope.min.js')}}"></script>
+  	<script src="{{ asset('assets/js/custom.js')}}"></script>
 
 
     <script>
