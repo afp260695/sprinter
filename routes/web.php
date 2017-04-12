@@ -33,10 +33,9 @@ Route::group(['middleware' => ['auth']], function () {
     });
 
     Route::group(['prefix' => 'sm'], function () {
-    	Route::get('/', function() {
-    		echo "sm";
-    		die();
-    	}); 	
+    	Route::resource('/', 'SM\SprintController', ['only' => ['index', 'store']]);
+        Route::resource('/sprint', 'SM\SprintController', ['only' => ['index', 'store']]);
+        Route::resource('/task', 'SM\TaskController', ['only' => ['show', 'store']]);	
     });
 
     Route::group(['prefix' => 'dev'], function () {
