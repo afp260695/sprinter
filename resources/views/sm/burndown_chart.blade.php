@@ -17,7 +17,15 @@
     <link href="{{ asset('assets/css/style2.css')}}" rel="stylesheet">
 	<link href="{{ asset('assets/css/style3.css')}}" rel="stylesheet">
     <link href="{{ asset('assets/css/font-awesome.min.css')}}" rel="stylesheet">
-
+    <script src="{{ asset('chartJS/dist/Chart.bundle.js')}}"></script>
+	<script src="{{ asset('chartJS/utils.js')}}"></script>
+	<style>
+		canvas {
+				-moz-user-select: none;
+				-webkit-user-select: none;
+				-ms-user-select: none;
+		}
+	</style>
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -64,39 +72,12 @@
 	 <div class="container mtb">
 	 	<div class="row">
 	 		
-	 			<h4>Tasks | <a href="/sm/burndown_chart/{{$id_sprint}}">Burndown Chart</a></h4>
+	 			<h4>Burndown Chart | <a href="/sm/task/{{$id_sprint}}">Tasks</a></h4>
 	 			<div class="hline"></div>
 				<!-- read from database semua task -->
 				<br>
 	 			<div style="overflow-x:auto;">
-	 				@if(count($all_user_stories)>0)
-	 				@foreach($all_user_stories as $user_stories)
-	 					<b>{{$user_stories->deskripsi}}</b>
-					  	<table style="margin-top: 10px; margin-bottom: 30px;">
-							<tr>
-						  		<th>Nama Task</th>
-						  		<th>Estimate Time</th>
-						  		<th>Status</th>
-							</tr>
-							@if(count($user_stories->tasks)>0)
-							@foreach($user_stories->tasks as $task)
-							<tr>
-								<th>{{$task->deskripsi}}</th>
-								<th>Estimate Time {{$task->lama_pengerjaan}} hours</th>
-								@if($task->status)
-									<th style="color: green;">Sudah Selesai</th>
-								@else
-									<th style="color: red;">Belum Selesai</th>
-								@endif
-							</tr>
-							@endforeach
-							@endif
-					  	</table>
-						<br>
-					@endforeach
-					@endif
-
-				  	
+				  	<canvas id="canvas"></canvas>
 				</div>
 	 		</div>
 	 	</div>
@@ -304,5 +285,119 @@
 	});
 })(jQuery);
 </script>
+<script>
+		var MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+		var config = {
+			type: 'line',
+			data: {
+				labels: ["Hari 1", "Hari 2", "Hari 3", "Hari 4", "Hari 5", "Hari 6", "Hari 7"],
+				datasets: [{
+					label: "Nama Proyek",
+					borderColor: window.chartColors.red,
+					backgroundColor: window.chartColors.red,
+					data: [
+                        100, 
+                        90, 
+                        87, 
+                        80, 
+                        70, 
+                        60, 
+                        50
+                    ],
+				}]
+			},
+			options: {
+				responsive: true,
+				title:{
+					display:true,
+					text:"Burndown Chart"
+				},
+				tooltips: {
+					mode: 'index',
+				},
+				hover: {
+					mode: 'index'
+				},
+				scales: {
+					xAxes: [{
+						scaleLabel: {
+							display: true,
+							labelString: 'Hari'
+						}
+					}],
+					yAxes: [{
+						stacked: true,
+						scaleLabel: {
+							display: true,
+							labelString: 'Time Remaining'
+						}
+					}]
+				}
+			}
+		};
+
+		window.onload = function() {
+			var ctx = document.getElementById("canvas").getContext("2d");
+			window.myLine = new Chart(ctx, config);
+		};
+
+		document.getElementById('randomizeData').addEventListener('click', function() {
+			config.data.datasets.forEach(function(dataset) {
+				dataset.data = dataset.data.map(function() {
+					return randomScalingFactor();
+				});
+
+			});
+
+			window.myLine.update();
+		});
+
+		var colorNames = Object.keys(window.chartColors);
+		// document.getElementById('addDataset').addEventListener('click', function() {
+		// 	var colorName = colorNames[config.data.datasets.length % colorNames.length];
+		// 	var newColor = window.chartColors[colorName];
+		// 	var newDataset = {
+		// 		label: 'Dataset ' + config.data.datasets.length,
+		// 		borderColor: newColor,
+		// 		backgroundColor: newColor,
+		// 		data: [],
+		// 	};
+
+		// 	for (var index = 0; index < config.data.labels.length; ++index) {
+		// 		newDataset.data.push(randomScalingFactor());
+		// 	}
+
+		// 	config.data.datasets.push(newDataset);
+		// 	window.myLine.update();
+		// });
+
+		// document.getElementById('addData').addEventListener('click', function() {
+		// 	if (config.data.datasets.length > 0) {
+		// 		var month = MONTHS[config.data.labels.length % MONTHS.length];
+		// 		config.data.labels.push(month);
+
+		// 		config.data.datasets.forEach(function(dataset) {
+		// 			dataset.data.push(randomScalingFactor());
+		// 		});
+
+		// 		window.myLine.update();
+		// 	}
+		// });
+
+		// document.getElementById('removeDataset').addEventListener('click', function() {
+		// 	config.data.datasets.splice(0, 1);
+		// 	window.myLine.update();
+		// });
+
+		// document.getElementById('removeData').addEventListener('click', function() {
+		// 	config.data.labels.splice(-1, 1); // remove the label first
+
+		// 	config.data.datasets.forEach(function(dataset, datasetIndex) {
+		// 		dataset.data.pop();
+		// 	});
+
+		// 	window.myLine.update();
+		// });
+	</script>
   </body>
 </html>

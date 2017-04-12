@@ -35,7 +35,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::group(['prefix' => 'sm'], function () {
     	Route::resource('/', 'SM\SprintController', ['only' => ['index', 'store']]);
         Route::resource('/sprint', 'SM\SprintController', ['only' => ['index', 'store']]);
-        Route::resource('/task', 'SM\TaskController', ['only' => ['show', 'store']]);	
+        Route::resource('/task', 'SM\TaskController', ['only' => ['show', 'store']]);
+        Route::resource('/burndown_chart', 'SM\BurndownChartController', ['only' => ['show', 'store']]);
+        
     });
 
     Route::group(['prefix' => 'dev'], function () {
