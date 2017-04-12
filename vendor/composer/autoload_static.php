@@ -279,6 +279,7 @@ class ComposerStaticInit69c385318317257fc916cfbb2da67ee0
         'CreateKeahlianDevelopersTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_11_143854_create_keahlian__developers_table.php',
         'CreateObstaclesTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_11_144006_create_obstacles_table.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
+        'CreateProyekDevelopersTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_12_005419_create_proyek__developers_table.php',
         'CreateProyeksTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_11_143928_create_proyeks_table.php',
         'CreateSprintsTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_11_143919_create_sprints_table.php',
         'CreateTasksTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_11_143914_create_tasks_table.php',

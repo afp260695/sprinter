@@ -28,7 +28,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::group(['prefix' => 'po'], function () {
     	Route::resource('/', 'PO\ProyekController', ['only' => ['index', 'show', 'store']]);
         Route::resource('/proyek', 'PO\ProyekController', ['only' => ['index', 'show', 'store']]);
-        Route::resource('/user_story', 'PO\UserStoriesController', ['only' => ['index', 'show', 'store']]);	
+        Route::resource('/user_story', 'PO\UserStoriesController', ['only' => ['index', 'show', 'store']]);
+        Route::resource('/developer', 'PO\DeveloperController', ['only' => ['show', 'store']]);	
     });
 
     Route::group(['prefix' => 'sm'], function () {

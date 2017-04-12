@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-     <link rel="shortcut icon" href="assets/ico/labtekindie.png">
+     <link rel="shortcut icon" href="{{ asset('assets/ico/labtekindie.png')}}">
 
-    <title>Sprinter - User Stories</title>
+    <title>Sprinter - Developer</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('assets/css/bootstrap.css')}}" rel="stylesheet">
@@ -64,12 +64,11 @@
 	 <div class="container mtb">
 	 	<div class="row">
 	 		<div class="col-lg-3">
-	 			<h4>User Stories | <a href="/po/developer/{{$id_proyek}}">Developers</a></h4>
+	 			<h4>Developers | <a href="/po/user_story/{{$id_proyek}}">User Stories</a></h4>
 	 			<div class="hline"></div>
-				<!-- read from database -->
-				@if(count($all_user_stories)>0)
-				@foreach($all_user_stories as $user_story)
-	 				<p><a href="#">{{$user_story->deskripsi}}</a></p>
+	 			@if(count($developer_in_project)>0)
+				@foreach($developer_in_project as $dev_in_project)
+	 				<p><a href="#">{{$dev_in_project->nama}}</a></p>
 	 			@endforeach
 	 			@endif
 	 		</div>
@@ -110,7 +109,7 @@
 	 	</div>
 	 </div>
 	 
-     <!--modal add user story-->
+      <!--modal add user story-->
       <div class="modal fade" id="modalAddUserStory" role="dialog">
         <div class="modal-dialog">
           <div class="modal-content">

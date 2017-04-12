@@ -4,12 +4,11 @@ namespace App\Http\Controllers\PO;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
-use App\Proyek;
-use App\User_Stories;
 use App\User;
+use App\Proyek_Developer;
 
-class UserStoriesController extends Controller
+
+class DeveloperController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -40,10 +39,14 @@ class UserStoriesController extends Controller
     public function store(Request $request)
     {
         //
-        $user_story = new User_Stories;
-        $user_story->id_proyek = $request->input('id_proyek');
-        $user_story->deskripsi = $request->input('deskripsi');
-        $user_story->save();
+        $developer = new Proyek_Developer;
+        $developer->id_proyek = $request->input('id_proyek');
+        $developer->id_developer = $request->input('id_developer');
+        $developer->save();
+
+        $user = User::find($developer->id_developer);
+        $user->avail = false;
+        $user->save();
         return redirect()->back();
     }
 
@@ -56,11 +59,19 @@ class UserStoriesController extends Controller
     public function show($id)
     {
         //
-        $all_user_stories = User_Stories::where('id_proyek', $id)->get();
+        $temp_developer_in_project = Proyek_Developer::where('id_proyek', $id)->get();
+        $developer_in_project = [];
+
+        foreach ($temp_developer_in_project as $dev) {
+            $temp_user_dev = User::find($dev->id_developer);
+            $dev->nama = $temp_user_dev->name;
+            array_push($developer_in_project, $dev);
+        }
         $developer = User::where('avail',true)
                     ->where('role','dev')
                     ->get();
-        return view('po.user-story',['all_user_stories' => $all_user_stories, 'id_proyek' => $id, 'developer' => $developer]);
+                    
+        return view('po.developer',['developer_in_project' => $developer_in_project, 'id_proyek' => $id, 'developer' => $developer]);
     }
 
     /**
